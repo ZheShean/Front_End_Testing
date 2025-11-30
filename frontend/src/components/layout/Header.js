@@ -7,9 +7,9 @@ const Header = () => {
     return (
         <header style={{ padding: '15px', background: '#333', color: 'white' }}>
             <h1>[Layout]: Header Placeholder (Will contain navigation)</h1>
-        </header>
+        </header> 
     );
 };
 
 // This is the essential step: Exporting the component so App.js can import it.
-export default Header;
+export default Header; 

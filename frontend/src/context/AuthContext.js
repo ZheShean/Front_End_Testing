@@ -6,6 +6,7 @@ const AuthContext = createContext(null);
 
 // Placeholder for your backend authentication URL
 //const API_URL = 'http://192.168.56.1:3000/api/auth'; 
+//const LOGIN_API_URL = 'http://localhost:3000/api/auth/login';
 
 export const AuthProvider = ({ children }) => {
   // State variables for tracking authentication status
@@ -53,9 +54,13 @@ export const AuthProvider = ({ children }) => {
     /*
     try {
       //send email & password to backend 
+      //Make the actual request to your backend login route 
       const response = await axios.post(`${API_URL}/login`, { email, password });
+      
+      // Expect token, user object, and role from the backend
       const { token, user } = response.data;
-
+      
+      // CRUCIAL: Store the token and the role
       localStorage.setItem('authToken', token);
       localStorage.setItem('userRole', user.role); // Store the actual role
       
@@ -64,12 +69,15 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       setIsLoading(false);
       return true;
+
     } catch (error) {
-      console.error('Login failed:', error.response?.data?.message || 'Network error');
+      const errorMessage = error.response?.data?.message || 'Network error or server down.';
+      return errorMessage; // Return the error message string
+    } finally {
       setIsLoading(false);
-      return false;
     }
-    */
+  }; */
+   
     // --- END BACKEND REPLACEMENT ZONE 2 --
 
     // *** TESTING SIMULATION LOGIC: KEEP FOR NOW ***

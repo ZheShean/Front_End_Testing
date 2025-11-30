@@ -16,8 +16,15 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+
+  "devDependencies": {
+        "cross": "^1.0.0",
+        "cross-env": "^10.1.0",
+        "env": "^0.0.2"
+      },
+
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

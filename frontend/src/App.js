@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Header from './components/layout/Header'; 
-import Footer from './components/layout/Footer';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 
 import LandingPage from './pages/public/LandingPage';
@@ -20,15 +18,15 @@ import PostingManagement from './pages/admin/PostingManagement';
 function App() {
   return (
     <BrowserRouter>
-      {/* Header and Footer remain outside <Routes> to appear on all pages */}
-      <Header /> 
+      {/* REMOVE <Header /> HERE */}
       
       <Routes>
         {/* ======================= 1. PUBLIC ROUTES ======================= */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-
+        <Route path="/forgot-password" element={<h1>Forgot Password Page Placeholder</h1>} />
+        
         {/* ======================= 2. PROTECTED USER ROUTES ======================= */}
         <Route element={<ProtectedRoute allowedRoles={['user', 'admin']} />}>
           
@@ -56,7 +54,6 @@ function App() {
         <Route path="*" element={<h1>404: Page Not Found</h1>} />
       </Routes>
       
-      <Footer />
     </BrowserRouter>
   );
 }
